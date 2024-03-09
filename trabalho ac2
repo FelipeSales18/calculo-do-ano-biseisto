@@ -1,0 +1,51 @@
+# Trabalho ac2
+# equaçao de segundo grau baskara
+
+import math
+
+a = float(input("qual é o valor de a?: "))
+b = float(input("qual é o valor de b?: "))
+c = float(input("qual é o valor de c?: "))
+
+def eq_seg_grau(a, b, c):
+    delta = b**2 -4*a*c
+    if delta > 0:
+        x1 = (-b + math.sqrt(delta)) / (2 * a)
+        x2 = (-b - math.sqrt(delta)) / (2 * a)
+        return x1, x2
+    elif delta == 0:
+        x = -b / (2 * a)
+        return x
+    else:
+        return "numeros invalidos"
+
+raizes = eq_seg_grau(a, b, c)
+print("as suas raizes sao", raizes)
+
+# calculo do ano bissexto
+
+ano = float(input("Em qual ano você está?: "))
+
+def bissexto(ano):
+    if ano  % 4 == 0 and ano % 100 != 0 or ano % 400 == 0:
+        return True
+    else:
+        return False
+    
+resposta = bissexto(ano)
+print(resposta)
+
+# calculadora de salario
+
+hr = float(input("Quantas horas você trabalha por dia: "))
+din = float(input("Quanto você ganha por hora: "))
+dias = float(input("Quantos dias você trabalhou esse mês: "))
+
+def calcula_salario(hr, din, dias, irpf=0.275):
+    salario_bruto = hr * din * dias 
+    taxa = salario_bruto * irpf
+    salario_liquido = salario_bruto - taxa 
+    return salario_liquido
+
+salario_liquido = calcula_salario(hr, din, dias, irpf=0.275)
+print("Você ganha por mês", salario_liquido)
