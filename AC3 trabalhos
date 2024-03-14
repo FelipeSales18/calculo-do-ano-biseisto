@@ -1,0 +1,82 @@
+#calcula tipo de triangulo
+
+def determina_tipo_triangulo(n1, n2, n3):
+    if n1 + n2 <= n3 or n1 + n3 <= n2 or n2 + n3 <= n1:
+        return "Não é um triângulo"
+    if n1 == n2 == n3:
+        return "equilatero"
+    elif n1 == n2 != n3 or n1 != n2 == n3:
+        return "isósceles"
+    else:
+        return "escaleno"
+    
+def testa_triangulo():
+    print(determina_tipo_triangulo(4, 4, 4)) # Equilátero
+    print(determina_tipo_triangulo(2, 4, 4)) # Isósceles
+    print(determina_tipo_triangulo(3, 4, 5)) # Escaleno
+    print(determina_tipo_triangulo(1, 1, 4)) # Não é um triângulo
+
+testa_triangulo()
+
+# dia da semana
+
+def dia_semana(num):
+    if num == 1:
+        return "domingo"
+    elif num == 2:
+        return "segunda"
+    elif num == 3:
+        return "terça"
+    elif num == 4:
+        return "quarta"
+    elif num == 5:
+        return "quinta"
+    elif num == 6:
+        return "sexta"
+    elif num == 7:
+        return "sabado"
+    else:
+        return ""
+    
+def testa_dia_semana():
+    print(dia_semana(2)) # segunda-feira
+    print(dia_semana(6)) # sexta-feira
+    print(dia_semana(7)) # sábado
+    print(dia_semana(9)) # string vazia
+
+testa_dia_semana()
+
+# calculadora simples
+
+def soma(num, num2):
+    return num + num2
+
+def subtração(num, num2):
+    return num - num2
+
+def multiplicação(num, num2):
+    return num * num2
+
+def divisão(num, num2):
+    if num and num2 != 0:
+        return num / num2
+    else:
+        "nao é possivel fazer divisao por zero"
+
+def calculadora_simples():
+    num = float(input("Qual é o seu numéro 1?: "))
+    num2 = float(input("Qual é o seu numéro 2?: "))
+    operação = input("Qual operçao voce quer fazer?: ")
+
+    if operação == 'soma':
+        print("resultado:", soma(num, num2))
+    elif operação == 'subtração':
+        print("resultado:", subtração(num, num2))
+    elif operação == 'multiplicação':
+        print("resultado:", multiplicação(num, num2))
+    elif operação == 'divisao':
+        print("resultado:", divisão(num, num2))
+    else:
+        print("operaçao invalida")
+
+calculadora_simples()
