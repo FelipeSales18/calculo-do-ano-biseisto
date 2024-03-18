@@ -1,0 +1,37 @@
+import random
+
+def main():
+    vida_aventureiro = 100
+    ataque_aventureiro = random.randint(10, 20)
+    defesa_aventureiro = random.randint(1, 5)
+    vida_monstro = random.randint(60, 80)
+    ataque_monstro = random.randint(20, 30)
+    rodada = 1
+
+    while True:
+        print("rodada", rodada )
+        print("aventureiro: vida" , vida_aventureiro, "- atk", ataque_aventureiro , "- deff" , defesa_aventureiro)
+        print("monstro: vida", vida_monstro, "- atk", ataque_monstro)
+
+
+        dano_aven = random.randint(1, ataque_aventureiro)
+        dano_mons = random.randint(1, ataque_monstro) - defesa_aventureiro
+
+
+        if dano_mons < 0:
+            dano_mons = 0
+
+        vida_monstro -= dano_aven
+        vida_aventureiro -= dano_mons
+        rodada += 1
+
+        if vida_monstro <= 0:
+            print("o monstro morreu, parabens!")
+            break
+        elif vida_aventureiro <=0:
+            print("o monstro te matou ")
+            break
+        print("aventureiro: vida", vida_aventureiro ,"-atk", ataque_aventureiro , "- deff" , defesa_aventureiro)
+        print("monstro: vida", vida_monstro, "- atk", ataque_monstro)
+
+main()
